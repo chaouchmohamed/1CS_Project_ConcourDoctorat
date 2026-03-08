@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary-accent: #a39274;
+  --color-surface: #dfd8c8;
+  --color-text-primary: #252523;
+  --color-bg: #FFFFFF;
+  --color-muted: rgba(37, 37, 35, 0.55);
+  --color-border: rgba(37, 37, 35, 0.08);
+  --color-success: #2e7d32;
+  --color-warning: #ff9800;
+  --color-danger: #d32f2f;
+  --color-focus-ring: rgba(163, 146, 116, 0.24);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --shadow-1: 0 1px 4px rgba(37, 37, 35, 0.06);
+  --shadow-2: 0 6px 20px rgba(37, 37, 35, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text-primary font-sans antialiased;
+  }
+
+  h1 {
+    @apply text-[32px] leading-[40px] font-bold;
+  }
+
+  h2 {
+    @apply text-[24px] leading-[32px] font-semibold;
+  }
+
+  h3 {
+    @apply text-[20px] leading-[28px] font-semibold;
+  }
+
+  p, span, div {
+    @apply text-[16px] leading-[24px];
+  }
+
+  .text-small {
+    @apply text-[13px] leading-[20px];
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply min-h-[44px] px-6 py-2 bg-primary-accent text-white rounded-md font-medium shadow-1 transition-all hover:opacity-90 active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-focus-ring disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply min-h-[44px] px-6 py-2 border border-border bg-transparent text-text-primary rounded-md font-medium transition-all hover:bg-black/[0.03] active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-focus-ring disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply min-h-[44px] px-6 py-2 bg-transparent text-text-primary rounded-md font-medium transition-all hover:bg-black/[0.03] active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-focus-ring disabled:opacity-50;
+  }
+
+  .input-field {
+    @apply w-full bg-white border border-border rounded-sm p-3 text-text-primary placeholder:text-muted focus:outline-none focus:ring-4 focus:ring-focus-ring transition-all;
+  }
+
+  .card {
+    @apply bg-white rounded-md shadow-1 border border-border overflow-hidden;
+  }
+
+  .card-surface {
+    @apply bg-surface rounded-md shadow-1 border border-border overflow-hidden;
+  }
+}
+
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full hover:bg-muted/20 transition-colors;
+}
